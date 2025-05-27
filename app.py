@@ -24,9 +24,15 @@ def webhook():
         requests.post(URL, json=response)
     return '', 200
 
-
+def send_message(text):
+    data = {
+        'chat_id': CHAT_ID,
+        'text': text
+    }
+    requests.post(URL, json=data)
 
 if __name__ == '__main__':
+    send_message('הודעה אוטומטית כל דקה')
     import os
     port = int(os.environ.get('PORT', 5000))  # Render תגדיר PORT כסביבת סביבה
     app.run(host='0.0.0.0', port=port)
