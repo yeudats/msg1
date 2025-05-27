@@ -19,7 +19,7 @@ def webhook():
         text = data['message'].get('text', '')
         response = {
             'chat_id': chat_id,
-            'text': f'היי! קיבלתי: {text}'
+            'text': f'שלום! קיבלתי: {text}'
         }
         requests.post(URL, json=response)
     return '', 200
